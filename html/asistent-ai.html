@@ -1,0 +1,47 @@
+  <section class="page" id="page-asistentai">
+    <div class="page-header">
+      <div style="font-size:2rem;line-height:1;margin-bottom:6px">🤖</div>
+      <h2>Asistent AI</h2>
+      <p class="page-sub">Pune întrebări unui asistent AI (Google Gemini), direct din aplicație.</p>
+    </div>
+
+    <div class="wt-container">
+
+      <!-- SETĂRI GEMINI -->
+      <div class="card">
+        <div class="card-header">
+          <h3>🔑 Conectare Google Gemini</h3>
+        </div>
+        <div class="form-group">
+          <label>Cheia API (Gemini)</label>
+          <input type="password" id="ai-apikey" class="form-input" placeholder="Lipește aici cheia API" oninput="saveAISettings()" onblur="handleAIKeyBlur()" autocomplete="off" />
+        </div>
+        <div class="form-group">
+          <label>Model</label>
+          <input type="text" id="ai-model" class="form-input" placeholder="gemini-3.7-flash" oninput="saveAISettings()" />
+        </div>
+        <button type="button" class="btn-outline btn-sm" id="aiTestKeyBtn" onclick="testAIKey()">🔎 Testează cheia</button>
+        <p class="page-sub" style="margin-top:4px">
+          Cheia se salvează doar pe acest telefon/calculator (nu se trimite nicăieri în afară de Google).
+          O poți genera gratuit pe <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>.
+          Dacă modelul scris aici nu mai există, schimbă-l cu numele unui model curent de pe același site.
+        </p>
+      </div>
+
+      <!-- CONVERSAȚIE -->
+      <div class="card">
+        <div class="card-header">
+          <h3>💬 Conversație</h3>
+          <button type="button" class="btn-outline btn-sm" onclick="clearAIChat()">🗑️ Șterge conversația</button>
+        </div>
+
+        <div class="ai-chat-log" id="aiChatLog"></div>
+
+        <div class="ai-chat-input-row">
+          <textarea id="ai-chat-input" class="form-textarea" placeholder="Scrie o întrebare..." rows="2" onkeydown="handleAIChatKeydown(event)"></textarea>
+          <button type="button" class="btn-primary btn-sm" id="aiChatSendBtn" onclick="sendAIMessage()">➤ Trimite</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
